@@ -1,0 +1,35 @@
+.header-container {
+    background-color: white;
+    color: #555555;
+    font-family: 'PT Sans Caption', sans-serif;
+}
+
+.logo img {
+    height: 50px; /* Ajuste conforme necessário */
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.header-name {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.header-title {
+    margin-right: 10px;
+}
+
+.header-square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: #F5F5F5;
+    color: #555555;
+    font-weight: bold;
+    border-radius: 5px; /* Opcional, para bordas arredondadas */
+}

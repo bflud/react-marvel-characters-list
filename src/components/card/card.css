@@ -1,0 +1,41 @@
+.card {
+    display: flex;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    margin-bottom: 20px;
+    padding: 24px 20px 20px;
+
+}
+
+.image {
+    width: 48px;
+    height: 48px;
+    border-radius: 4px;
+
+}
+.card-image {
+    width: 100px;
+    height: auto;
+    margin-right: 10px;
+}
+.card-header{
+    color:#8E8E8E;
+    font-family: PT Sans;
+    padding: 10px;
+}
+.card-details {
+    flex-grow: 1;
+}
+
+.card-info {
+    margin-top: 10px;
+}
+
+.card-info strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.card-container{
+
+}

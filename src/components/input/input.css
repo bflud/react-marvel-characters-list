@@ -1,0 +1,45 @@
+/* input.css */
+.main-input {
+  
+    margin: 50px auto;
+}
+@media (max-width: 767.98px) {
+    .search {
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) {
+    .search {
+        width: 25%;
+    }
+}
+.input-group {
+    position: relative;
+}
+
+.input-group-append {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.input-group-text {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #aaa;
+}
+
+h2 {
+  color: #555555;
+}
+
+span {
+  color: #555555;
+  font-size: 16px;
+}

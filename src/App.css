@@ -1,0 +1,8 @@
+.App {
+ display: flex;
+ 
+}
+.container-content {
+    background-color: #E5E5E5;
+    padding: 20px;
+}
