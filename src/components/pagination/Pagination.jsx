@@ -18,7 +18,17 @@ const Pagination = ({ totalPages, activePage, onPageChange }) => {
           </li>
         ))}
         <li className={`page-item ${activePage === totalPages ? 'disabled' : ''}`}>
-          <button className="page-link" type="button" onClick={() => onPageChange(activePage + 1)}>Próximo</button>
+          <button
+            className="page-link"
+            type="button"
+            onClick={() => {
+              if (activePage < totalPages) {
+                onPageChange(activePage + 1);
+              }
+            }}
+          >
+            Próximo
+          </button>
         </li>
       </ul>
     </nav>

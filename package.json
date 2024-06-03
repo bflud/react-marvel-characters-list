@@ -1,5 +1,5 @@
 {
-  "name": "marvel-heroes-app",
+  "name": "objective-marvel-characters",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -19,13 +19,12 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
       "react-app"
-
     ]
   },
   "browserslist": {
@@ -44,9 +43,12 @@
     "@babel/core": "^7.24.6",
     "@babel/plugin-syntax-jsx": "^7.24.6",
     "@babel/preset-env": "^7.24.6",
-    "@babel/preset-react": "^7.24.6"
-
-
+    "@babel/preset-react": "^7.24.6",
+    "@testing-library/jest-dom": "^6.4.5",
+    "babel-jest": "^29.7.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^27.5.1",
+    "jsdom": "^24.1.0",
+    "react-test-renderer": "^18.3.1"
   }
-
 }

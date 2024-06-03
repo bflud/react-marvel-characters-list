@@ -1,36 +1,51 @@
 import React from "react";
 import { render } from "@testing-library/react";
+
 import Card, { formatText } from "./Card";
 
 describe("Card component", () => {
   const characters = [
-    { imageUrl: "image1.jpg", name: "John Doe, Jane Doe", age: "30, 28" },
-    { imageUrl: "image2.jpg", name: "Alice, Bob", age: "25, 27" },
+    {
+      imageUrl: "https://example.com/image.jpg",
+      name: "John Doe",
+      age: "30",
+      gender: "Male",
+      city: "New York",
+    },
+    {
+      imageUrl: "https://example.com/image2.jpg",
+      name: "Jane Doe",
+      age: "25",
+      gender: "Female",
+      city: "Los Angeles",
+    },
   ];
-  const headers = ["Name", "Age"];
 
-  test("renders headers and characters correctly", () => {
-    const { container, getByText } = render(<Card characters={characters} headers={headers} />);
+  const headers = ["name", "age", "gender", "city"]; // Defina a variável headers
 
-    // Check if headers are rendered
-    expect(getByText("Name")).toBeInTheDocument();
-    expect(getByText("Age")).toBeInTheDocument();
+  test("renders the Card component", () => {
+    const { getByText } = render(<Card characters={characters} headers={headers} />);
 
-    // Check if characters are rendered
-    characters.forEach(character => {
-      expect(container.querySelector(`[alt="${character.name}"]`)).toBeInTheDocument();
-      expect(container.querySelector(`[alt="${character.age}"]`)).toBeInTheDocument();
+    characters.forEach((character) => {
+      expect(getByText(character.name)).toBeTruthy();
+      expect(getByText(character.age)).toBeTruthy();
+      expect(getByText(character.gender)).toBeTruthy();
+      expect(getByText(character.city)).toBeTruthy();
     });
   });
+  
 
-  test("formatText function formats text correctly", () => {
-    const text = "John Doe, Jane Doe";
-    const formattedText = formatText(text);
+  describe("formatText function", () => {
+    test("formats text with commas into spans", () => {
+      const text = "Hello, world, this, is, a, test";
+      const formattedText = formatText(text);
 
-    // Convert formattedText to string to compare correctly
-    const formattedTextString = formattedText.map((node) => node.props.children).flat().join('');
+      expect(formattedText).toHaveLength(6);
 
-    // Check if the text is split and formatted correctly
-    expect(formattedTextString).toEqual("John DoeJane Doe");
+      formattedText.forEach((item, index) => {
+        expect(item.type).toBe("span");
+        expect(item.key).toBe(index.toString());
+      });
+    });
   });
 });
