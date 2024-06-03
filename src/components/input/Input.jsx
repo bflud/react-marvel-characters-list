@@ -19,10 +19,8 @@ const Input = ({
 
     const handleInputChange = (e) => {
         if (onChange) onChange(e);
-        if (validate) {
-            const error = validate(e.target.value);
-            setError(error);
-        }
+        const isValid = validate ? validate(e.target.value) : true;
+        setError(isValid ? "" : errorMessage || "Invalid input");
     };
 
     const handleInputBlur = (e) => {
