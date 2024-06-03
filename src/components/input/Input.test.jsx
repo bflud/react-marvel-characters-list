@@ -102,9 +102,9 @@ describe("Input component", () => {
         expect(validate).toHaveBeenCalledWith("valid");
         expect(queryByText("Invalid input")).toBeNull();
     });
-});
 
-describe("Input component", () => {
+
+
     test("should call onFocus when input is focused", () => {
         const onFocus = jest.fn();
         const { getByPlaceholderText } = render(

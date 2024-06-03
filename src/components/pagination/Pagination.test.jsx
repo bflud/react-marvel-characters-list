@@ -12,16 +12,15 @@ describe('Pagination component', () => {
             <Pagination totalPages={totalPages} activePage={activePage} onPageChange={handlePageChange} />
         );
 
-        // Test if the previous and next buttons are rendered
         expect(getByText("Anterior")).toBeTruthy();
         expect(getByText("Próximo")).toBeTruthy();
 
-        // Test if all page buttons are rendered
+
         for (let i = 1; i <= totalPages; i++) {
             expect(getByText(i.toString())).toBeTruthy();
         }
 
-        // Test onClick event for page buttons
+   
         fireEvent.click(getByText("2"));
         expect(handlePageChange).toHaveBeenCalledWith(2);
     });
@@ -96,7 +95,7 @@ describe('Pagination component', () => {
         );
 
         const paginationItems = container.querySelectorAll('.page-item');
-        expect(paginationItems.length).toBe(7); // 5 pages + previous + next
+        expect(paginationItems.length).toBe(7); 
 
         expect(getByText('Anterior')).toBeTruthy();
         expect(getByText('Próximo')).toBeTruthy();
@@ -106,10 +105,10 @@ describe('Pagination component', () => {
         expect(getByText('4')).toBeTruthy();
         expect(getByText('5')).toBeTruthy();
 
-        fireEvent.click(getByText('2')); // Simulate clicking page 2
+        fireEvent.click(getByText('2')); 
         expect(mockOnPageChange).toHaveBeenCalledWith(2);
 
-        fireEvent.click(getByText('Próximo')); // Simulate clicking next
+        fireEvent.click(getByText('Próximo')); 
         expect(mockOnPageChange).toHaveBeenCalledWith(4);
     });
 
@@ -119,7 +118,7 @@ describe('Pagination component', () => {
         );
 
         const paginationItems = container.querySelectorAll('.page-item');
-        expect(paginationItems.length).toBe(12); // 10 pages + previous + next
+        expect(paginationItems.length).toBe(12); 
 
         expect(getByText('Anterior')).toBeTruthy();
         expect(getByText('Próximo')).toBeTruthy();
@@ -134,10 +133,10 @@ describe('Pagination component', () => {
         expect(getByText('9')).toBeTruthy();
         expect(getByText('10')).toBeTruthy();
 
-        fireEvent.click(getByText('Anterior')); // Simulate clicking previous
+        fireEvent.click(getByText('Anterior')); 
         expect(mockOnPageChange).toHaveBeenCalledWith(9);
 
-        fireEvent.click(getByText('6')); // Simulate clicking page 6
+        fireEvent.click(getByText('6')); 
         expect(mockOnPageChange).toHaveBeenCalledWith(6);
     });
 });
