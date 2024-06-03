@@ -5,7 +5,8 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import Input from "./components/input/Input";
 import Card from "./components/card/Card";
 import Pagination from "./components/pagination/Pagination";
-import charactersData from "./charactersData";
+import charactersData from "./data/mock/charactersData";
+import headersData from "./data/mock/headersData";
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -13,6 +14,9 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 4;
 
+  const calculateTotalPages = (filteredCharacters, itemsPerPage) => {
+    return Math.ceil(filteredCharacters.length / itemsPerPage);
+  };
   const handleInputChange = (e) => {
     const searchQuery = e.target.value.toLowerCase();
     const filtered = charactersData.filter((character) =>
@@ -36,7 +40,6 @@ function App() {
     setFilteredCharacters(charactersData);
   }, []);
 
-  const headers = ["Nome", "Séries", "Eventos"];
 
   return (
     <>
@@ -59,12 +62,12 @@ function App() {
             onChange={handleInputChange}
           />
 
-          <Card characters={characters} headers={headers} />
+          <Card characters={characters} headers={headersData} />
         </div>
       </div>
       <div className="d-flex justify-content-center mt-2">
         <Pagination
-          totalPages={Math.ceil(filteredCharacters.length / itemsPerPage)}
+          totalPages={calculateTotalPages(filteredCharacters, itemsPerPage)}
           activePage={currentPage}
           onPageChange={handlePageChange}
         />

@@ -21,7 +21,7 @@ describe("Card component", () => {
     },
   ];
 
-  const headers = ["name", "age", "gender", "city"]; // Defina a variável headers
+  const headers = ["name", "age", "gender", "city"];
 
   test("renders the Card component", () => {
     const { getByText } = render(<Card characters={characters} headers={headers} />);
@@ -33,19 +33,19 @@ describe("Card component", () => {
       expect(getByText(character.city)).toBeTruthy();
     });
   });
-  
 
-  describe("formatText function", () => {
-    test("formats text with commas into spans", () => {
-      const text = "Hello, world, this, is, a, test";
-      const formattedText = formatText(text);
 
-      expect(formattedText).toHaveLength(6);
 
-      formattedText.forEach((item, index) => {
-        expect(item.type).toBe("span");
-        expect(item.key).toBe(index.toString());
-      });
+  test("formats text with commas into spans", () => {
+    const text = "Hello, world, this, is, a, test";
+    const formattedText = formatText(text);
+
+    expect(formattedText).toHaveLength(6);
+
+    formattedText.forEach((item, index) => {
+      expect(item.type).toBe("span");
+      expect(item.key).toBe(index.toString());
     });
   });
 });
+
