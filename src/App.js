@@ -70,6 +70,10 @@ function App() {
           totalPages={calculateTotalPages(filteredCharacters, itemsPerPage)}
           activePage={currentPage}
           onPageChange={handlePageChange}
+          prevText="<"
+          nextText=">"
+          firstText="<<"
+          lastText=">>"
         />
 
       </div>

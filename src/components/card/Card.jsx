@@ -9,6 +9,9 @@ export const formatText = (text) => {
     </span>
   ));
 };
+
+
+//characters and headers must have similar indices to work
 const Card = ({ characters, headers }) => {
 
 

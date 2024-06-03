@@ -1,28 +1,34 @@
-/* components/pagination.css */
-.pagination {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.pagination-spaced .page-item {
+  margin-right: 5px;
 }
 
-.pagination li {
-  margin: 0 5px;
+@media (min-width: 768px) {
+  .pagination-spaced .page-item {
+    margin-right: 15px;
+  }
 }
 
-.pagination button {
-  background-color: #fff;
-  border: 1px solid #ccc;
-  padding: 5px 10px;
-  cursor: pointer;
+.page-item.disabled .page-link {
+  pointer-events: none;
+  cursor: default;
 }
 
-.pagination button.active {
-  background-color: #007bff;
-  color: #fff;
-  border: 1px solid #007bff;
-}
+/* Adicione estilos para layout mobile */
+@media (max-width: 767px) {
+  .pagination-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-.page-item{
-  cursor: pointer;
+  /* Esconde os botões "Anterior" e "Próximo" */
+  .pagination-container .prev-button,
+  .pagination-container .next-button {
+    display: none;
+  }
+
+  /* Mantém visíveis os números das páginas */
+  .pagination-container .pagination {
+    margin: 0;
+  }
 }

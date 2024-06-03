@@ -1,7 +1,7 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import Input from "./Input";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 describe("Input component", () => {
     test("renders the Input component title and subtitle", () => {
